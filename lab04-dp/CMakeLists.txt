@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.15)
+project(lab04_dp)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(a src/a.cpp)
+add_executable(b src/b.cpp)
+add_executable(d src/d.cpp)
+add_executable(e src/e.cpp)
+add_executable(f src/f.cpp)
+add_executable(j draft/j.cpp)
+add_executable(k src/k.cpp)
+add_executable(l src/l.cpp)
+add_executable(m draft/m.cpp)
+add_executable(o src/o.cpp)
+add_executable(r src/r.cpp)
+add_executable(s src/s.cpp)
