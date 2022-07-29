@@ -2,11 +2,11 @@
 
 # Algorithms and Data Structures
 
-This repository contains all my works on course "Algorithms and Data Structures" at ITMO University (2017-2019, 1-4 semesters). Here are all 16 course labs and my solutions to them. Course was designed and teached by Niyaz Nigmatullin.
+Course was designed and taught by [Niyaz Nigmatullin](https://github.com/niyaznigmatullin) at ITMO University in 2017–19 (year2017, 1st–4th semesters).
 
-# Labs
+## Labs
 
-## 1st semester
+### 1st semester
 
 1. Linear data structures
     * **themes:** _amortized analysis_
@@ -21,7 +21,7 @@ This repository contains all my works on course "Algorithms and Data Structures"
     * **themes:** _dynamic programming_
     * [statements (ru)](lab04-dp/tasks.pdf), [solutions](lab04-dp)
 
-## 2nd semester
+### 2nd semester
 
 5. Search trees
    * **themes:** _search data structures_
@@ -36,7 +36,7 @@ This repository contains all my works on course "Algorithms and Data Structures"
    * **themes:** _sotring nets_
    * [statements (ru)](lab08-sortnet/tasks.pdf), [solutions](lab08-sortnet)
 
-## 3rd semester
+### 3rd semester
 
 9. DFS
    * **themes:** _basics of graph theory, connectivity in graphs, depth-first search_
@@ -51,7 +51,7 @@ This repository contains all my works on course "Algorithms and Data Structures"
     * **themes:** _maximum flow problems, minimum-cost flow problem_
     * [statements (ru)](lab12-flow/tasks.pdf)
 
-## 4th semester
+### 4th semester
 
 13. String algorithms
     * **themes:** _basics of string theory, string searching algorithm_
@@ -66,7 +66,7 @@ This repository contains all my works on course "Algorithms and Data Structures"
     * **themes:** _basics of number theory, fundamental theorem of arithmetic, basics of group theory_
     * [statements (ru)](lab16-numbers/tasks.pdf), [solutions](lab16-numbers)
 
-# Useful links
+## Useful links
 
 * ["Алгоритмы и структуры данных" on wikiconspects (ru)](http://neerc.ifmo.ru/wiki/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B_%D0%B8_%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
 * ["Теория графов" on wikiconspects (ru)](http://neerc.ifmo.ru/wiki/index.php?title=%D0%A2%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2)
