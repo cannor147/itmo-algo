@@ -105,14 +105,21 @@ int main() {
 
     int k;
     cin >> k;
+    vector<int> internal(2), external{0, 1};
+    internal[1] = 1;
     vector<pair<int, int>> queries;
     Binary_tree bin_tree;
     string word;
     while (cin >> word) {
         int a, b;
         cin >> a >> b;
-        if (word == "ADD") bin_tree.add_node(a);
-        if (word == "GET") queries.emplace_back(a, b);
+        if (word == "ADD") {
+            if (b >= internal.size()) internal.resize(b + 1);
+            internal[b] = bin_tree.size() + 1;
+            bin_tree.add_node(internal[a]);
+            external.push_back(b);
+        }
+        if (word == "GET") queries.emplace_back(internal[a], internal[b]);
     }
     vector<P> arr;
     bin_tree.count_arr(&arr, 0, 0);
@@ -128,6 +135,6 @@ int main() {
         int l = min(pos[queries[j].first].first, pos[queries[j].second].first);
         int r = max(pos[queries[j].first].second, pos[queries[j].second].second);
         P ans = tree.get_min(1, 0, tree.get_size() - 1, l, r);
-        cout << ans.index << endl;
+        cout << external[ans.index] << endl;
     }
 }
