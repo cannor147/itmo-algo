@@ -102,12 +102,12 @@ private:
         }
     }
     bool check_node(node *current, const std::string &substring, int index) {
-        for (int i = current->get_start(); i < current->get_end(); i++) {
+        for (int i = current->get_start(); i < current->get_end() && i <= _index; i++) {
             if (word[i] == substring[index]) {
                 index++;
                 if (index == substring.length()) return true;
             } else {
-                break;
+                return false;
             }
         }
         if (current->has_child(substring[index])) {
@@ -229,7 +229,7 @@ int main() {
         std::cin >> word;
         std::transform(word.begin(), word.end(), word.begin(), tolower);
         queries.push_back({command == "A", word});
-        text += word;
+        if (command == "A") text += word;
     }
 
     int count = 1;
