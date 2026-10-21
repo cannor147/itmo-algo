@@ -83,7 +83,7 @@ public:
     int size() {
         return nodes.size();
     }
-    int add_node(int number) {
+    void add_node(int number) {
         nodes[number - 1].children.push_back(size());
         nodes.emplace_back(size());
     }
