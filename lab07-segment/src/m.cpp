@@ -127,6 +127,7 @@ int main() {
         int r = max(pos[q1].second, pos[q2].second);
         ans = table.get_min(l, r);
         sum += ans.index;
+        if (j == m) break;
         q1 = ((h[2 * j + 1] + ans.index) % n);
         q2 = h[2 * j + 2];
     }
