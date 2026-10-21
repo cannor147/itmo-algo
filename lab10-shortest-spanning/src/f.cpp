@@ -227,7 +227,7 @@ public:
             if (kek[i][i] < 0) {
                 result.push_back(i);
                 result.push_back(i);
-                break;
+                return result;
             }
         }
         for (size_t i = 0; i < size(); i++) {
