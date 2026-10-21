@@ -79,10 +79,10 @@ private:
     }
     size_t dfs_odd(size_t i, vector<size_t> &ans_odd, vector<size_t> &ans_even) {
         if (ans_odd[i] == 2) {
-            ans_odd[i] = 1;
+            ans_odd[i] = 0;
             if (matrix[i].empty()) ans_odd[i] = 0;
             for (auto &e : matrix[i]) {
-                ans_odd[i] &= dfs_even(e.get_index(), ans_odd, ans_even);
+                ans_odd[i] |= dfs_even(e.get_index(), ans_odd, ans_even);
             }
         }
         return ans_odd[i];
