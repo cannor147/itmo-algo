@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <utility>
 
 using namespace std;
 
@@ -27,10 +28,10 @@ Node* mergeTreaps(Node *l, Node *r) {
     if (l == NULL) return r;
     if (r == NULL) return l;
     Node* res;
-    if (l->prior < r->prior) {
+    if (make_pair(l->key, l->prior) < make_pair(r->key, r->prior)) {
         r->left = mergeTreaps(l, r->left);
         res = r;
-    } else if (l->prior > r->prior) {
+    } else {
         l->right = mergeTreaps(l->right, r);
         res = l;
     }
@@ -60,12 +61,12 @@ pair<Node*, Node*> splitInTreap(Node *n, int count) {
 
 Node* insertInTreap(Node *n, int x, int y) {
     if (n == NULL) return new Node(x, y);
-    if (n->prior < y) {
+    if (make_pair(n->key, n->prior) < make_pair(x, y)) {
         Node *m = new Node(x, y);
         m->left = n;
         updateInTreap(m);
         return m;
-    } else if (n->prior > y) {
+    } else {
         n->right = insertInTreap(n->right, x, y);
         updateInTreap(n);
         return n;
