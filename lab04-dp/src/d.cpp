@@ -10,7 +10,7 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int a[10001][1001], w[1001], c[1001];
+    static int a[10001][1001], w[1001], c[1001];
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++) cin >> w[i];
