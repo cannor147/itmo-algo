@@ -33,7 +33,7 @@ int main() {
             addItem(word - '0');
         }
     }
-    cout << ans;
+    cout << deleteItem();
     return 0;
 }
 

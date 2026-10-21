@@ -129,6 +129,7 @@ public:
             if (ts[d] == i) break;
         }
         for (; d < size(); d++) {
+            if (dw[ts[d]] == INT32_MAX) continue;
             for (auto r : matrix[ts[d]]) {
                 dw[r.get_index()] = min(dw[r.get_index()], dw[ts[d]] + r.get_weight());
             }

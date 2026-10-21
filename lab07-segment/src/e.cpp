@@ -64,8 +64,8 @@ public:
     }
     int64 get_sum(int64 left, int64 right) {
         int l = (int)left, r = (int)right;
-        int64 result = INT32_MAX;
-        for (l += size, r += size; l <= right; l /= 2, r /= 2) {
+        int64 result = 0;
+        for (l += size, r += size; l <= r; l /= 2, r /= 2) {
             if (l % 2 == 1) result += tree[l++].sum;
             if (r % 2 == 0) result += tree[r--].sum;
         }

@@ -166,6 +166,7 @@ int main() {
         std::cout << ans[i] + 1 << " ";
     }
     std::cout << std::endl;
+    return 0;
     for (int i = 0; i < ans.size(); ++i) {
         std::cout << word.substr(ans[i], word.length() - ans[i]) << std::endl;
     }

@@ -241,15 +241,6 @@ int main() {
             l = m;
         }
     }
-    int l = - 1, r = 1000000000;
-    while (r - l > 1) {
-        int m = (l + r) / 2;
-        if (g.is_full(m) && trans.is_full(m)) {
-            r = m;
-        } else {
-            l = m;
-        }
-    }
     cout << r;
     return 0;
 }

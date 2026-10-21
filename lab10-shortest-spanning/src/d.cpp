@@ -141,7 +141,7 @@ private:
         }
     }
     void dijkstra(vector<int> &result, set<pair<int, size_t>> q) {
-        for (size_t i = 0; i < size(); i++) {
+        while (!q.empty()) {
             size_t j_min = (*q.begin()).second;
             q.erase({result[j_min], j_min});
             if (result[j_min] == INT32_MAX) {

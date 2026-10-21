@@ -135,7 +135,7 @@ public:
     int size() {
         return nodes.size();
     }
-    int add_node(int parent, int index, int cost) {
+    void add_node(int parent, int index, int cost) {
         nodes[parent].children.push_back(index);
         g[parent][index] = cost;
     }

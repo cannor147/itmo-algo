@@ -30,9 +30,9 @@ private:
 public:
     Sparse_table(vector<P> &arr) {
         int s = arr.size();
-        table.resize((int)444444, vector<P>(20, P()));
+        table.resize(s, vector<P>((int)log2(s) + 1, P()));
         for (int j = 0; (1 << j) <= s; j++) {
-            for (int i = 0; i < s; i++) {
+            for (int i = 0; i + (1 << j) <= s; i++) {
                 if (j == 0) {
                     table[i][j] = arr[i];
                 } else {
@@ -73,14 +73,22 @@ public:
     int size() {
         return nodes.size();
     }
-    int add_node(int parent, int number) {
+    void add_node(int parent, int number) {
         nodes[parent].children.push_back(number);
     }
     void count_arr(vector<P> *arr, int number, int depth) {
-        arr->emplace_back(number, depth);
-        for (int &i : nodes[number].children) {
-            count_arr(arr, i, depth + 1);
-            arr->emplace_back(number, depth);
+        vector<pair<int, int>> stack{{number, 0}};
+        while (!stack.empty()) {
+            int v = stack.back().first;
+            int &child = stack.back().second;
+            if (child == 0) arr->emplace_back(v, depth + stack.size() - 1);
+            if (child < nodes[v].children.size()) {
+                int next = nodes[v].children[child++];
+                stack.emplace_back(next, 0);
+            } else {
+                stack.pop_back();
+                if (!stack.empty()) arr->emplace_back(stack.back().first, depth + stack.size() - 1);
+            }
         }
     }
 };
@@ -112,23 +120,24 @@ int main() {
     }
 
     int x, y, z;
-    vector<int> h(2 * m + 1);
-    cin >> h[1] >> h[2] >> x >> y >> z;
-    for (int i = 3; i < h.size(); i++) {
-        h[i] = (int)(((long long)x * (long long)h[i - 2] + (long long)y * (long long)h[i - 1] + (long long)z) % n);
-    }
+    int a1, a2;
+    cin >> a1 >> a2 >> x >> y >> z;
 
     Sparse_table table(arr);
     P ans;
     long long sum = 0;
-    int q1 = h[1], q2 = h[2];
+    int q1 = a1, q2 = a2;
     for (int j = 1; j <= m; j++) {
         int l = min(pos[q1].first, pos[q2].first);
         int r = max(pos[q1].second, pos[q2].second);
         ans = table.get_min(l, r);
         sum += ans.index;
-        q1 = ((h[2 * j + 1] + ans.index) % n);
-        q2 = h[2 * j + 2];
+        if (j == m) break;
+        int next_a1 = (1LL * x * a1 + 1LL * y * a2 + z) % n;
+        a2 = (1LL * x * a2 + 1LL * y * next_a1 + z) % n;
+        a1 = next_a1;
+        q1 = (a1 + ans.index) % n;
+        q2 = a2;
     }
     cout << sum;
 }

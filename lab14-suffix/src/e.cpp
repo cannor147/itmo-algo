@@ -270,6 +270,7 @@ public:
     }
     std::pair<long long, std::string> get_refrain() {
         auto lcp = get_lcp_for_suffices();
+        lcp.push_back(0);
 
         std::stack<std::pair<std::pair<long long, long long>, int>> stack;
         long long max_value = word.length() - 1, max_size = 0, index = 0;
