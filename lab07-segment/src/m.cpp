@@ -73,7 +73,7 @@ public:
     int size() {
         return nodes.size();
     }
-    int add_node(int parent, int number) {
+    void add_node(int parent, int number) {
         nodes[parent].children.push_back(number);
     }
     void count_arr(vector<P> *arr, int number, int depth) {
